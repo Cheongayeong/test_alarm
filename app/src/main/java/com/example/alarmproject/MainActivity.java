@@ -1,5 +1,6 @@
 package com.example.alarmproject;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.amitshekhar.DebugDB;
+import com.example.alarmproject.Calendar.CalendarActivity;
 import com.example.alarmproject.nevigation.CalFragment;
 import com.example.alarmproject.nevigation.GraphFragment;
 import com.example.alarmproject.nevigation.ListFragment;
@@ -28,13 +30,14 @@ public class MainActivity extends AppCompatActivity
     private Fragment graphFragment;
     private Fragment calFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DebugDB.getAddressLog();
         listFragment = new ListFragment();
-        calFragment = new CalFragment();
+       // calFragment = new CalFragment();
         graphFragment = new GraphFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.container, listFragment);
@@ -77,7 +80,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.menu_graph) {
             transaction.replace(R.id.container, graphFragment);
         } else if (id == R.id.menu_cal) {
-            transaction.replace(R.id.container, calFragment);
+            Intent intent = new Intent(this, CalendarActivity.class);
+            startActivity(intent);
 
         }
         // 뒤로 버튼 눌렀을 때 이전 프래그먼트로
@@ -92,4 +96,5 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
 }

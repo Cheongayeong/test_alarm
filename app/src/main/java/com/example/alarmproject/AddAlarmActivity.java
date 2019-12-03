@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -45,7 +46,7 @@ public class AddAlarmActivity extends AppCompatActivity {
     int hour2, min2;
     private DatabaseHelper db;
 
-
+    LinearLayout ll_selectLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,16 @@ public class AddAlarmActivity extends AppCompatActivity {
 
         passwd = "0";
         mAlarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        LinearLayout setLocation = (LinearLayout) findViewById(R.id.ll_selectLocation);
 
+
+        setLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

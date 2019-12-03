@@ -9,9 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.alarmproject.Calendar.Decorators.FailDecorator;
 import com.example.alarmproject.Calendar.Decorators.OnedayDecorator;
 import com.example.alarmproject.Calendar.Decorators.SaturdayDecorator;
+import com.example.alarmproject.Calendar.Decorators.SuccessDecorator;
 import com.example.alarmproject.Calendar.Decorators.SundayDecorator;
 import com.example.alarmproject.R;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -117,7 +117,7 @@ public class CalendarActivity extends AppCompatActivity {
             if (isFinishing()) {
                 return;
             }
-            materialCalendarView.addDecorator(new FailDecorator(calendarDays, CalendarActivity.this));
+            materialCalendarView.addDecorator(new SuccessDecorator(calendarDays, CalendarActivity.this));
             //materialCalendarView.addDecorator(new SuccessDecorator(calendarDays, CalendarActivity.this));
             /*if(isFailAlarm){ //(Databasehelper.getSuccessOrFail 같이  db 헬퍼에서 달성여부 받아서) alarm.IsFailed 같은거
                 materialCalendarView.addDecorator(new FailDecorator(calendarDays, CalendarActivity.this));

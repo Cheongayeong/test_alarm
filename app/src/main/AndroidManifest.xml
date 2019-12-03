@@ -20,6 +20,9 @@
 
 
         <activity android:name=".AddAlarmActivity" />
+        <activity android:name=".Calendar.CalendarActivity" />
+        <activity android:name=".MapsActivity" />
+        <activity android:name=".MessageActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
