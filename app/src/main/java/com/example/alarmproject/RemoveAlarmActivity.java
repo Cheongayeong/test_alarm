@@ -58,6 +58,7 @@ public class RemoveAlarmActivity extends Activity {
                         removeAlarm();
                         break;
                 }
+                finish();
             }
 
         };
